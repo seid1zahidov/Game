@@ -1,0 +1,29 @@
+
+.all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    }
+}
+  .big {
+    image-rendering:pixelated;
+    position:relative;
+    top:-50px;
+  }
+  
+  /* CSS animation of walking */
+  @keyframes walk {
+    0% { background-position: 0 0 }
+    100% { background-position: 120px 0 }
+  }
+  
+  .caminar {
+    animation: walk .25s steps(2) infinite forwards;
+  }
+  body{
+    background-color: black;
+  }
