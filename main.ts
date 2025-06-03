@@ -1,14 +1,17 @@
-var Bmw = document.querySelector(".Bmw");
-var Merc = document.querySelector(".Merc");
-function movePlayer(element, incrX, incrY) {
-    var _a, _b;
-    var x = Number((_a = element.getAttribute('data-x')) !== null && _a !== void 0 ? _a : '0') + incrX;
-    var y = Number((_b = element.getAttribute('data-y')) !== null && _b !== void 0 ? _b : '0') + incrY;
-    element.style.transform = "translate(".concat(x, "px, ").concat(y, "px) scaleX(").concat(incrX >= 0 ? 1 : -1, ")");
+const Bmw = document.querySelector<HTMLElement>(".Bmw");
+const Merc = document.querySelector<HTMLElement>(".Merc");
+
+function movePlayer(element: HTMLElement, incrX: number, incrY: number): void {
+    const x = Number(element.getAttribute('data-x') ?? '0') + incrX;
+    const y = Number(element.getAttribute('data-y') ?? '0') + incrY;
+
+    element.style.transform = `translate(${x}px, ${y}px) scaleX(${incrX >= 0 ? 1 : -1})`;
+
     element.setAttribute('data-x', x.toString());
     element.setAttribute('data-y', y.toString());
 }
-window.addEventListener('keydown', function (e) {
+
+window.addEventListener('keydown', (e: KeyboardEvent) => {
     if (Bmw) {
         switch (e.key) {
             case 'ArrowRight':
@@ -29,6 +32,7 @@ window.addEventListener('keydown', function (e) {
                 break;
         }
     }
+
     if (Merc) {
         switch (e.keyCode) {
             case 68: // D
@@ -50,7 +54,8 @@ window.addEventListener('keydown', function (e) {
         }
     }
 });
-window.addEventListener('keyup', function () {
-    Bmw === null || Bmw === void 0 ? void 0 : Bmw.classList.remove('caminar');
-    Merc === null || Merc === void 0 ? void 0 : Merc.classList.remove('caminar');
+
+window.addEventListener('keyup', () => {
+    Bmw?.classList.remove('caminar');
+    Merc?.classList.remove('caminar');
 });

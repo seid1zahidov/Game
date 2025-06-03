@@ -1,8 +1,9 @@
 
 .all{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
     img{
     width: 100px;
     height: 100px;
